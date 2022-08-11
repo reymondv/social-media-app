@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Button = (props) => {
+const Button = ({ buttonClicked }) => {
   return (
     <>
-      <button onClick={props.buttonClicked}>Create post</button>
+      <button className='btn-post' onClick={buttonClicked}>
+        Create post
+      </button>
     </>
   );
 };

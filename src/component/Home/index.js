@@ -2,15 +2,9 @@ import { useState } from 'react';
 import InputBox from '../InputBox/index.js';
 import Posts from '../Posts/index.js';
 import { AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai';
+
 const Home = () => {
-  const [posts, setPosts] = useState([
-    {
-      id: 1,
-      name: 'John Doe',
-      content: 'test post 1',
-      timestamp: '8/11/2022, 8:45:17 PM',
-    },
-  ]);
+  const [posts, setPosts] = useState([]);
   const [user, setUser] = useState('John Doe');
   const date = new Date();
   const [sort, setSort] = useState(true);
@@ -59,7 +53,6 @@ const Home = () => {
   };
   return (
     <>
-      <InputBox onCreate={createPost} />
       <div className='filter-bar'>
         <button onClick={() => setSort(!sort)}>
           Sort by date {sort ? <AiOutlineArrowDown /> : <AiOutlineArrowUp />}
@@ -73,6 +66,7 @@ const Home = () => {
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
+      <InputBox onCreate={createPost} />
       {posts.length > 0 && processedData.length > 0 ? (
         <Posts
           post={processedData}

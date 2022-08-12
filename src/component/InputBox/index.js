@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Button from '../Button/index.js';
 
 const InputBox = ({ onCreate }) => {
   const [content, setContent] = useState('');

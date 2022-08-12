@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { CgProfile } from 'react-icons/cg';
-import { FaTimes } from 'react-icons/fa';
+import { AiFillDelete } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
 const Card = ({ posts, onDelete, user, onSave }) => {
@@ -24,7 +24,7 @@ const Card = ({ posts, onDelete, user, onSave }) => {
           ) : (
             <h3>{posts.name}</h3>
           )}
-          <FaTimes
+          <AiFillDelete
             onClick={() => onDelete(posts.id)}
             style={{
               color: 'red',

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import InputBox from '../InputBox/index.js';
 import Posts from '../Posts/index.js';
-import { Router } from 'react-router-dom';
+import { AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai';
 const Home = () => {
   const [posts, setPosts] = useState([
     {
@@ -15,6 +15,7 @@ const Home = () => {
   const date = new Date();
   const [sort, setSort] = useState(true);
   const [isEditable, setEdit] = useState(false);
+  const [search, setSearch] = useState('');
 
   const deletePost = (id) => {
     setPosts(posts.filter((post) => post.id !== id));
@@ -39,21 +40,44 @@ const Home = () => {
     setPosts([...posts, newPost]);
   };
 
+  const processedData = posts
+    .sort(
+      sort
+        ? (a, b) => (a.timestamp < b.timestamp ? 1 : -1)
+        : (a, b) => (a.timestamp > b.timestamp ? 1 : -1)
+    )
+    .filter((data) => {
+      if (search === '') {
+        return data;
+      } else {
+        return data.content.toLowerCase().includes(search);
+      }
+    });
+
   const toggleEdit = () => {
     setEdit(!isEditable);
-    console.log(isEditable);
   };
-
   return (
     <>
-      {/* <button onClick={() => setSort(!sort)}>Hello</button> */}
       <InputBox onCreate={createPost} />
-      {posts.length > 0 ? (
+      <div className='filter-bar'>
+        <button onClick={() => setSort(!sort)}>
+          Sort by date {sort ? <AiOutlineArrowDown /> : <AiOutlineArrowUp />}
+        </button>
+
+        <input
+          name='search'
+          placeholder='Search post'
+          type='text'
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
+      {posts.length > 0 && processedData.length > 0 ? (
         <Posts
-          post={posts}
+          post={processedData}
           user={user}
           onDelete={deletePost}
-          sort={sort}
           onEdit={toggleEdit}
           onSave={updatePost}
         />

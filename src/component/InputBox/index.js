@@ -16,8 +16,8 @@ const InputBox = ({ onCreate }) => {
   return (
     <>
       <form className='input-post' onSubmit={onAdd}>
-        <input
-          type='text'
+        <textarea
+          type='textarea'
           name='write_post'
           placeholder='Write your post here'
           value={content}

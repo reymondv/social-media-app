@@ -12,6 +12,19 @@ body {
     background-color: #cbd8db;
 }
 
+header {
+    background-color: rgb(84, 134, 177);
+    color: white;
+    height: 50px;
+    display: flex;
+    justify-content: left;
+    padding: 0 30px;
+    position: fixed;
+    z-index: 9999;
+}
+
+h1 {}
+
 .container {
     width: 100%;
 }
@@ -24,8 +37,9 @@ body {
     width: 60px;
     height: 60px;
     padding: 5px 5px;
-    border-radius: 30px;
-    background-color: rgb(216, 216, 216);
+    border-radius: 60px;
+    background-color: white;
+    border: solid 1px black
 }
 
 .card {
@@ -36,6 +50,7 @@ body {
     margin: 2rem auto;
     border-radius: 20px;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+    white-space: pre-wrap;
 }
 
 .card-bg {
@@ -56,6 +71,10 @@ body {
 
 .card-description {
     margin: 1.5rem auto;
+    padding: 10px 10px;
+    display: inline-flex;
+    width: 100%;
+    border-radius: 10px;
 }
 
 .card-description h4 {
@@ -64,7 +83,7 @@ body {
 
 .input-post {
     padding: 10px 10px;
-    margin-top: 15vh;
+    margin-top: 6vh;
     justify-content: center;
     align-items: center;
     display: inline-flex;
@@ -73,13 +92,49 @@ body {
     border-radius: 10px;
 }
 
+.filter-bar {
+    width: 60vw;
+    display: flex;
+    justify-content: left;
+    margin: 0 auto;
+    padding: 5vh 0 10px 0;
+}
+
+input[name=search] {
+    height: 2rem;
+    width: 100%;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    margin-left: 15px;
+}
+
 input[name=write_post] {
     height: 2.5rem;
     width: 100%;
     border: none;
     padding: 5px 15px;
     border-radius: 20px;
-    background-color: rgb(220, 220, 220);
+    background-color: rgb(232, 232, 232);
+}
+
+.input-post textarea {
+    height: 4rem;
+    width: 100%;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 20px;
+    background-color: rgb(232, 232, 232);
+}
+
+.card-description textarea {
+    height: 200px;
+    width: 100%;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
 }
 
 .btn-post {
@@ -108,4 +163,23 @@ input[name=write_post] {
 
 .float-left {
     float: left;
+}
+
+.btn-close {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #ff2c2c;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 0;
+}
+
+.btn-primary {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #00c0eb;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 0;
 }

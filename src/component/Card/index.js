@@ -5,7 +5,7 @@ import { FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Card = ({ posts, onDelete, user, onSave }) => {
-  const [text, setText] = useState(posts.content);
+  const [text, setText] = useState();
   const [isEditable, setEditable] = useState(false);
 
   const toggleEdit = () => {
@@ -39,7 +39,7 @@ const Card = ({ posts, onDelete, user, onSave }) => {
         </div>
         <div className='card-description'>
           {isEditable ? (
-            <input
+            <textarea
               type='text'
               name='edit_post'
               value={text}
@@ -49,9 +49,25 @@ const Card = ({ posts, onDelete, user, onSave }) => {
             <h4>{posts.content}</h4>
           )}
         </div>
-        <button onClick={toggleEdit}>Edit</button>
+
+        {isEditable ? (
+          <button className='btn-close' onClick={toggleEdit}>
+            Exit
+          </button>
+        ) : (
+          <button
+            className='btn-primary'
+            onClick={() => {
+              setEditable(!isEditable);
+              setText(posts.content);
+            }}>
+            Edit
+          </button>
+        )}
+
         {isEditable && (
           <button
+            className='btn-primary'
             onClick={() => {
               onSave(posts.id, text);
               setEditable(!isEditable);

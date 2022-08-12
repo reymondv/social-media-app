@@ -1,32 +1,19 @@
+import { useEffect } from 'react';
 import Card from '../Card/index.js';
 
-const Posts = ({ post, onDelete, user, sort, onSave }) => {
+const Posts = ({ post, onDelete, user, onSave }) => {
   return (
     <>
       <div className='card-bg'>
-        {sort
-          ? post
-              .sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1))
-              .map((data, idx) => (
-                <Card
-                  key={idx}
-                  user={user}
-                  posts={data}
-                  onDelete={onDelete}
-                  onSave={onSave}
-                />
-              ))
-          : post
-              .sort((a, b) => (a.timestamp > b.timestamp ? 1 : -1))
-              .map((data, idx) => (
-                <Card
-                  key={idx}
-                  user={user}
-                  posts={data}
-                  onDelete={onDelete}
-                  onSave={onSave}
-                />
-              ))}
+        {post.map((data, idx) => (
+          <Card
+            key={idx}
+            user={user}
+            posts={data}
+            onDelete={onDelete}
+            onSave={onSave}
+          />
+        ))}
       </div>
     </>
   );

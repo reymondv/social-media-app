@@ -1,5 +1,5 @@
 # How to run
-You need to instal npm and node js before running the application
+You need to install npm and node js before running the application
 1. Clone this repository
 2. Install dependencies by running the command
 ```
@@ -9,4 +9,4 @@ npm install
 ```
 npm start
 ```
-4. Can access the application through 127.0.0.1:3000
+4. You can now access the application through 127.0.0.1:3000

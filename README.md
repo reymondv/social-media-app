@@ -18,3 +18,5 @@ npm start
 4. Delete post by clicking the trash bin icon in the post
 5. Search post by using the search bar at top
 6. Sort the news feed by date ascending or descending
+
+<img align="left" width="auto" height="600" src="https://i.ibb.co/wrH4Zcw/Screenshot-11.png">

@@ -12,11 +12,13 @@ npm start
 4. You can now access the application through http://localhost:3000
 
 # Functionality and features
+This app contains dummy data upon opening the for better representation of social media app
+
 1. Create a post by typing in the text area and submitting it
-2. Viewing news feed for the posts
+2. Viewing news feed 
 3. Edit specific post by clicking edit button in the post
 4. Delete post by clicking the trash bin icon in the post
 5. Search post by using the search bar at top
-6. Sort the news feed by date ascending or descending
+6. Sorting news feed by date ascending or descending
 
-<img align="left" width="auto" height="600" src="https://i.ibb.co/wrH4Zcw/Screenshot-11.png">
+<img align="left" width="auto" height="500" src="https://i.ibb.co/wrH4Zcw/Screenshot-11.png">

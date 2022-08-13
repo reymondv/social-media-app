@@ -3,9 +3,28 @@ import InputBox from '../InputBox/index.js';
 import Posts from '../Posts/index.js';
 import { AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai';
 
-const Home = () => {
-  const [posts, setPosts] = useState([]);
-  const [user, setUser] = useState('John Doe');
+const Home = ({ user }) => {
+  const [posts, setPosts] = useState([
+    {
+      id: 1,
+      name: 'Juan Dela Cruz',
+      content: 'TGIF!',
+      timestamp: '8/13/2022, 8:21:12 PM',
+    },
+    {
+      id: 1,
+      name: 'Reymond Villanueva',
+      content: 'Happy Weekend Everyone!',
+      timestamp: '8/13/2022, 8:30:12 PM',
+    },
+    {
+      id: 1,
+      name: 'Micheal Angelo',
+      content: 'Just Got Home!',
+      timestamp: '8/13/2022, 9:20:12 PM',
+    },
+  ]);
+
   const date = new Date();
   const [sort, setSort] = useState(true);
   const [isEditable, setEdit] = useState(false);
@@ -37,8 +56,8 @@ const Home = () => {
   const processedData = posts
     .sort(
       sort
-        ? (a, b) => (a.timestamp < b.timestamp ? 1 : -1)
-        : (a, b) => (a.timestamp > b.timestamp ? 1 : -1)
+        ? (a, b) => (Date.parse(a.timestamp) < Date.parse(b.timestamp) ? 1 : -1)
+        : (a, b) => (Date.parse(a.timestamp) > Date.parse(b.timestamp) ? 1 : -1)
     )
     .filter((data) => {
       if (search === '') {

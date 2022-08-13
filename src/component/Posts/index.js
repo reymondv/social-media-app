@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import Card from '../Card/index.js';
 
 const Posts = ({ post, onDelete, user, onSave }) => {

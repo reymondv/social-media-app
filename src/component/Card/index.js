@@ -50,7 +50,6 @@ const Card = ({ posts, onDelete, user, onSave }) => {
             <h4>{posts.content}</h4>
           )}
         </div>
-
         {!isEditable && posts.name === user && (
           <button
             className='btn-primary'
@@ -61,13 +60,12 @@ const Card = ({ posts, onDelete, user, onSave }) => {
             Edit
           </button>
         )}
-
         {isEditable && (
           <button className='btn-close' onClick={toggleEdit}>
             Exit
           </button>
         )}
-
+        &nbsp;&nbsp;
         {isEditable && (
           <button
             className='btn-primary'
